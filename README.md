@@ -66,3 +66,54 @@ npm run lint    # lint the project
 ---
 
 ## 📁 Project structure
+
+src/
+├── app/
+│ ├── page.tsx # Landing page
+│ ├── analyze/page.tsx # Analyzer flow (input → analyzing → results)
+│ ├── dashboard/page.tsx # Analytics dashboard
+│ ├── reports/[id]/page.tsx # Individual risk report
+│ └── globals.css # Design tokens, glassmorphism, gradients
+├── components/
+│ ├── analyzer/ # Indicator list, timeline, explanation panel
+│ ├── ui/ # Button, Card, Badge primitives
+│ ├── navbar.tsx, footer.tsx, dashboard-sidebar.tsx
+│ ├── waveform.tsx, risk-meter.tsx, particle-grid.tsx
+│ ├── theme-provider.tsx, toast-provider.tsx
+│ └── logo.tsx
+└── lib/
+├── mockEngine.ts # Simulated AI analysis / risk-scoring engine
+├── mockData.ts # Dashboard mock stats, charts, conversation table
+└── utils.ts
+
+
+---
+
+## 🧪 How the mock analysis engine works
+
+`analyzeTranscript()` in `src/lib/mockEngine.ts`:
+
+1. Parses a raw transcript into speaker-labeled, timestamped segments.
+2. Runs each segment against a set of weighted pattern rules (urgency, credential requests, authority claims, suspicious verification steps, financial pressure, unusual behavioral patterns).
+3. Aggregates matched rules into an overall risk score (0–100) and risk level (Low / Medium / High / Critical).
+4. Produces per-indicator explanations, a signal-strength breakdown for the chart, and a natural-language summary.
+
+This is intentionally transparent and deterministic so the demo is reproducible — it is **not** a trained ML model, and it does not send data anywhere.
+
+---
+
+## ⚠️ Disclaimer
+
+EchoGuard is a hackathon/demo project built to explore what an *explainable* conversational risk-analysis product could look like. It:
+
+- does **not** perform real speech-to-text or machine-learning-based fraud detection,
+- uses **mock/demo data** for all dashboard statistics and sample reports,
+- should **not** be relied upon for actual fraud or scam detection in production or real-world scenarios.
+
+If you're building on top of this, plug in a real transcription + ML pipeline behind the same `AnalysisResult` interface used in `src/lib/mockEngine.ts`.
+
+---
+
+## 📄 License
+
+This project is provided as-is for demonstration purposes. Add a license of your choice (MIT is a common default for hackathon projects) if you plan to open-source it.
