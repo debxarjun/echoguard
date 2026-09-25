@@ -66,26 +66,7 @@ npm run lint    # lint the project
 ---
 
 ## 📁 Project structure
-
-src/
-├── app/
-│ ├── page.tsx # Landing page
-│ ├── analyze/page.tsx # Analyzer flow (input → analyzing → results)
-│ ├── dashboard/page.tsx # Analytics dashboard
-│ ├── reports/[id]/page.tsx # Individual risk report
-│ └── globals.css # Design tokens, glassmorphism, gradients
-├── components/
-│ ├── analyzer/ # Indicator list, timeline, explanation panel
-│ ├── ui/ # Button, Card, Badge primitives
-│ ├── navbar.tsx, footer.tsx, dashboard-sidebar.tsx
-│ ├── waveform.tsx, risk-meter.tsx, particle-grid.tsx
-│ ├── theme-provider.tsx, toast-provider.tsx
-│ └── logo.tsx
-└── lib/
-├── mockEngine.ts # Simulated AI analysis / risk-scoring engine
-├── mockData.ts # Dashboard mock stats, charts, conversation table
-└── utils.ts
-
+<img width="607" height="461" alt="image" src="https://github.com/user-attachments/assets/0aa70c31-c8c7-40e5-bf8a-e1f08f137f4c" />
 
 ---
 
